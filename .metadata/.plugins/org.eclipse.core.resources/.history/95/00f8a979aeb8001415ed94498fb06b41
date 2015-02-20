@@ -1,0 +1,24 @@
+package chess;
+import pieces.*;
+public class Board 
+{
+	//CONSTANTS
+	public final static int WHITE = 0;
+	public final static int BLACK = 1;
+	
+	//CLASS VARIABLES
+	/*The board is currently an array, but if you want AI, break it*/
+	public Piece[][] board = new Piece[8][8];
+	
+	public Board(){
+		init();
+	}
+	/*TODO make the board initialization process*/
+	public void init(){
+		
+	}
+	
+	public static void main(String args[]){
+		
+	}
+}

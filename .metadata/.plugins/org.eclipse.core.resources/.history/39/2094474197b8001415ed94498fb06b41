@@ -1,0 +1,6 @@
+package pieces;
+import pieces;
+
+public class Pawn extends Piece{
+
+}

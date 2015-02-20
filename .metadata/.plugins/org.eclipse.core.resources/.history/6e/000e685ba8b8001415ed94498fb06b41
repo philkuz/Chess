@@ -1,0 +1,61 @@
+package pieces;
+import java.util.ArrayList;
+
+import chess.*;
+
+public class Pawn extends Piece{
+	
+	//should only be 1 or -1, if it is 0, it means it hasn't been initialized. 
+	public int direction = 0 ;
+	public Pawn(int x, int y, int type) {
+		super(x, y, type);
+		if (type == Board.WHITE)
+			direction = 1;
+		else
+			direction = -1;
+	}
+
+	public String getType() {
+		return "pawn";
+	}
+	public ArrayList<Integer[]> captures(){
+		ArrayList<Integer[]> captures = new ArrayList<Integer[]>();
+		int[] loc = getLocation();
+		for(int i = 0; i < 2; i++)
+		{
+			Integer[] coord = {loc[0]+(int)Math.pow(-1,i), loc[1]+direction};
+			captures.add(coord);
+		}
+		ArrayList<Integer[]> tempCapt = new ArrayList<Integer[]>();
+		//checks to make sure the move is legal
+		for(Integer[] coord : captures){
+			if()
+		}
+		
+		//if it is white
+		if(direction > 0){
+//			if: x is not greater than the 8th horiz (h)  
+			if(!(loc[0]+1 >= 8)){
+			}
+		}else if(direction < 0){
+//			
+			
+		}else{
+			System.out.println("Direction error");
+			System.exit(0);
+		}
+		
+//		if: x is not less than the 1st horiz (a)
+		if(!(loc[0]-1 < 0)){
+			
+		}
+					
+		return captures;
+	}
+	public ArrayList<Integer[]> moves(){
+		ArrayList<Integer[]> moves = captures();
+		
+		return null;
+	}
+
+}

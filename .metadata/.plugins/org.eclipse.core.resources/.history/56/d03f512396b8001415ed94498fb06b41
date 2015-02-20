@@ -1,0 +1,12 @@
+
+public abstract class Piece 
+{
+	public int coord[];
+	public Piece[][] board;
+	public Piece(int x, int y)
+	{
+		coord[0] = x; coord[1] = y;
+	}
+	public void updateBoard()
+	public abstract int[][] moves();
+}

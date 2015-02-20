@@ -1,0 +1,50 @@
+package pieces;
+import java.util.ArrayList;
+
+import chess.Piece;
+
+public class Pawn extends Piece{
+	
+	//should only be 1 or -1, if it is 0, it means it hasn't been initialized. 
+	public int direction = 0 ;
+	public Pawn(int x, int y, int type) {
+		super(x, y, type);
+		if (type == 0)
+			direction = 1;
+		else
+			direction = -1;
+	}
+
+	public String getType() {
+		return "pawn";
+	}
+	public ArrayList<Integer[]> captures()
+	{
+		ArrayList<Integer[]> captures = new ArrayList<Integer[]>();
+		int[] loc = getLocation();
+//		if: x is not greater than the 8th horiz (h)  
+		if(direction > 0)
+		{
+			if(!(loc[0]+1 >= 8)){
+			}
+		}
+		
+			if(direction)
+			if(loc[1]){
+				
+			}
+		}
+//		if: x is not less than the 1st horiz (a)
+		if(!(loc[0]-1 < 0)){
+			
+		}
+					
+		return captures;
+	}
+	public ArrayList<Integer[]> moves(){
+		ArrayList<Integer[]> moves = captures();
+		
+		return return;
+	}
+
+}

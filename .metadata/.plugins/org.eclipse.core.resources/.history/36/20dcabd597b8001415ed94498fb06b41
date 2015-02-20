@@ -1,0 +1,23 @@
+package chess;
+
+public abstract class Piece 
+{
+	public int coord[];
+	public Piece[][] board;
+	public int type;
+	public Piece(int x, int y, int type)
+	{
+		coord[0] = x; coord[1] = y, type = type;
+	}
+	
+	public void updateBoard(Piece[][] newboard)
+	{
+		board = newboard;
+	}
+	//returns the type of piece this piece is
+	public abstract String getType();
+	public int[] getLocation() {
+		return coord;
+	}
+	public abstract int[][] moves();
+}

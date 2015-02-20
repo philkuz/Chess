@@ -1,0 +1,23 @@
+package pieces;
+import chess.Piece;
+
+public class Pawn extends Piece{
+
+	public Pawn(int x, int y) {
+		super(x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int[][] moves() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
