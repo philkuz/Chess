@@ -28,6 +28,9 @@ public abstract class Piece
 		coord[0] = dest[0];
 		coord[1] = dest[1];
 	}
+	public int getColor(){
+		return color;
+	}
 	public abstract ArrayList<Integer[]> moves();
 	/*TODO Make some kind of move check that prevents King from getting into check*/
 	public static void displayVars(int[] vars){
@@ -35,5 +38,15 @@ public abstract class Piece
 			System.out.print(Arrays.asList(vars).indexOf(e)+". "+e+",");
 		}
 		System.out.println("\n");
+	}
+	//checks to see if there is a space like this on the board
+	public boolean occupied(Integer[] space, int color){
+		Piece p = board[space[0]][space[1]];
+		if(p == null)
+			return false;
+		if(p.getColor() == color)
+			return true;
+		else
+			return false;
 	}
 }
