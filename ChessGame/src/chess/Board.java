@@ -15,24 +15,41 @@ public class Board
 	public Board(){
 		init();
 	}
-	/*TODO make the board initialization process*/
+	/*TODO make the board initialization process; made a test with pawns.*/
 	public void init(){
 		board = new Piece[8][8];
-		Piece p = new Pawn(1,0,WHITE);
+//		loop for white and black
+		for(int i = 0; i < 2; i++)
+		{
+			int y = i*7;
+			/*TODO make movements for queen, king, bishop, rook, and knight*/
+			addPiece(new Queen(3,y, i));
+			addPiece(new King(4,y, i));
+			for(int j=0; j< 2; j++)
+			{
+				addPiece(new Knight(1+4*j,y,i));
+				addPiece(new Bishop(2+3*j,y,i));
+				addPiece(new Rook(j*7, y,i));
+			}
+			for(int k = 0; k<8; k++)
+			{
+				addPiece(new Pawn(k,1,i));
+			}
+		}
+		Piece p = new Knight(4,3,WHITE);
+//		Piece q = new Pawn(0,2,WHITE);
+//		Piece r = new Pawn(2,2,BLACK);
 		addPiece(p);
-		p.updateBoard(board);
+//		addPiece(q);
+//		addPiece(r);
 		ArrayList<Integer[]> moves = p.moves();
 		
-		int[] loc = p.getLocation();
-		System.out.println("("+loc[0]+","+loc[1]+")");
-		System.out.print("Moves: ");
-		for(Integer[] move : moves){
-			System.out.println("("+move[0]+","+move[1]+")");
-		}
+		
 	}
 	public void addPiece(Piece p){
 		int[] loc = p.getLocation();
 		board[loc[0]][loc[1]] = p;
+		p.updateBoard(board);
 	}
 	public static void main(String args[]){
 		

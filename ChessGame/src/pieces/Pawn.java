@@ -7,9 +7,9 @@ public class Pawn extends Piece{
 	
 	//should only be 1 or -1, if it is 0, it means it hasn't been initialized. 
 	public int direction = 0;
-	public Pawn(int x, int y, int type) {
-		super(x, y, type);
-		if (type == Board.WHITE)
+	public Pawn(int x, int y, int color) {
+		super(x, y, color);
+		if (color == Board.WHITE)
 			direction = 1;
 		else
 			direction = -1;
@@ -36,13 +36,16 @@ public class Pawn extends Piece{
 			}
 			
 		}
-		//quick change of origins
+		//quick refresh of captures and tempCap
 		captures = tempCap;
 		tempCap = new ArrayList<Integer[]>();
 		//check to see if there is a piece on the move
 		for(Integer[] coord: captures){
-			if(board[coord[0]][coord[1]]!= null){
-				tempCap.add(coord);
+			Piece target = board[coord[0]][coord[1]];
+			if(target != null){
+				System.out.println("target is not null");
+				if(target.color != this.color)
+					tempCap.add(coord);
 			}
 		}
 		captures = tempCap;
@@ -54,11 +57,12 @@ public class Pawn extends Piece{
 		Integer[] move = {loc[0], loc[1]+direction};
 		if(board[move[0]][move[1]] == null){
 			moves.add(move);
-			if(direction > 0 && loc[1] == 1 || direction <0 && loc[1] == 7){
-				if(board[move[0]][move[1]+direction] == null)
+			System.out.println("D:"+direction+" C:"+coord[1]);
+			if(direction > 0 && coord[1] == 1 || direction < 0 && coord[1] == 7){
+				if(board[coord[0]][coord[1]+direction] == null)
 				{
-					move[1]+=direction;
-					moves.add(move);
+					Integer[] temp2 ={move[0],move[1]+direction};
+					moves.add(temp2);
 				}
 			}
 		}		

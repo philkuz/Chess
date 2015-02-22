@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Piece 
 {
@@ -9,9 +10,9 @@ public abstract class Piece
 //	Intended for move finding
 	public Piece[][] board;
 //	Black or white
-	public int type;
-	public Piece(int x, int y, int type){
-		coord[0] = x; coord[1] = y; this.type = type;
+	public int color;
+	public Piece(int x, int y, int color){
+		coord[0] = x; coord[1] = y; this.color = color;
 	}
 	
 	public void updateBoard(Piece[][] newboard){
@@ -28,4 +29,11 @@ public abstract class Piece
 		coord[1] = dest[1];
 	}
 	public abstract ArrayList<Integer[]> moves();
+	/*TODO Make some kind of move check that prevents King from getting into check*/
+	public static void displayVars(int[] vars){
+		for(int e : vars){
+			System.out.print(Arrays.asList(vars).indexOf(e)+". "+e+",");
+		}
+		System.out.println("\n");
+	}
 }
