@@ -1,0 +1,36 @@
+package pieces;
+
+import java.util.ArrayList;
+
+import chess.*;
+
+public class King extends Piece {
+
+	public King(int x, int y, int color) {
+		super(x, y, color);
+		asci[Board.WHITE]= "♔";
+		asci[Board.BLACK]= "♚";
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getType() {
+		return "king";
+	}
+	
+	public ArrayList<Integer[]> moves() {
+		//first generate the possible moves, then decide whether they are legal.
+		ArrayList<Integer[]> moves = new ArrayList<Integer[]>();
+//		The vector of the first move
+		int[] delV = {1,0};
+		Integer[] prev = {-1,1};
+		for(int i = 0; i < 8; i++){
+			Integer[] temp = {coord[0]+prev[0],coord[1]+prev[1]};
+			prev[0]+=delV[(i/2)%2];
+			prev[1]+=delV[(i/2+1)%2];
+			System.out.println("delV: " + prev[0]+" "+prev[1]);
+		}
+		return null;
+	}
+
+}

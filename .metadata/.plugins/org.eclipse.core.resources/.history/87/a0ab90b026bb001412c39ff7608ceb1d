@@ -1,0 +1,27 @@
+package pieces;
+
+import java.util.ArrayList;
+
+import chess.*;
+
+public class King extends Piece {
+
+	public King(int x, int y, int color) {
+		super(x, y, color);
+		asci[Board.WHITE]= "♔";
+		asci[Board.BLACK]= "♚";
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getType() {
+		return "king";
+	}
+
+	public ArrayList<Integer[]> moves() {
+		//first generate the possible moves, then decide whether they are legal.
+		
+		return null;
+	}
+
+}

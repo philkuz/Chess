@@ -11,6 +11,7 @@ public abstract class Piece
 	public Piece[][] board;
 //	Black or white
 	public int color;
+	public String asci[] = {"?","?"};
 	public Piece(int x, int y, int color){
 		coord[0] = x; coord[1] = y; this.color = color;
 	}
@@ -32,14 +33,38 @@ public abstract class Piece
 		return color;
 	}
 	public abstract ArrayList<Integer[]> moves();
-	/*TODO Make some kind of move check that prevents King from getting into check*/
+	public ArrayList<Integer[]> captures(){
+		ArrayList<Integer[]> captureMoves = new ArrayList<Integer[]>();
+		for(Integer[] move : moves()){
+			if (getPiece(move) != null)
+				captureMoves.add(move);	
+		}
+		return captureMoves;
+	}
+	
 	public static void displayVars(int[] vars){
 		for(int e : vars){
 			System.out.print(Arrays.asList(vars).indexOf(e)+". "+e+",");
 		}
 		System.out.println("\n");
 	}
-	//checks to see if there is a space like this on the board
+	//returns true or false whether a move is acceptable
+	/*TODO Make some kind of move check that prevents King from getting into check*/
+	public boolean legalMove(Integer[] space){
+		for(int coord : space)
+		{
+			if(coord < 0 || coord >= Board.BOARDLEN)
+				return false;
+		}
+		if(occupied(space, color))
+			return false;
+		return true;
+	}
+	/*Gets the piece on the board*/
+	public Piece getPiece(Integer[] space){
+		return board[space[0]][space[1]];
+	}
+	//checks to see if a space is currently occupied by a friendly piece
 	public boolean occupied(Integer[] space, int color){
 		Piece p = board[space[0]][space[1]];
 		if(p == null)

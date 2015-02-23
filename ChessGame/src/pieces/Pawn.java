@@ -9,6 +9,9 @@ public class Pawn extends Piece{
 	public int direction = 0;
 	public Pawn(int x, int y, int color) {
 		super(x, y, color);
+		asci[Board.WHITE]= "♙";
+		asci[Board.BLACK]= "♟";
+		
 		if (color == Board.WHITE)
 			direction = 1;
 		else
@@ -51,6 +54,7 @@ public class Pawn extends Piece{
 		captures = tempCap;
 		return captures;
 	}
+	/*TODO:Make this work with occupied()*/
 	public ArrayList<Integer[]> moves(){
 		int[] loc = getLocation();
 		ArrayList<Integer[]> moves = captures();

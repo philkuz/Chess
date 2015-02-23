@@ -7,6 +7,8 @@ public class Knight extends Piece {
 
 	public Knight(int x, int y, int color) {
 		super(x, y, color);
+		asci[0]="♘";
+		asci[1]="♞";
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,22 +34,22 @@ public class Knight extends Piece {
 			tempMoves.add(outputV2);
 //			displayVars(new int[]{(int)Math.pow(-1, i)*vect[i%2],(int)Math.pow(-1, i)*vect[(i+1)%2]});
 			for(Integer[] output: tempMoves){
-				if(Board.legalMove(output)&&!occupied(output, color)){
+				if(legalMove(output)){
 					moves.add(output);
-					System.out.println("Move "+(2*i)+". ("+output[0]+", "+output[1]+");");
 				}
-				
 			}
 			
 			
+		}		
+		return moves;
+	} 
+	public ArrayList<Integer[]> captures(){
+		ArrayList<Integer[]> captureMoves = new ArrayList<Integer[]>();
+		for(Integer[] move : moves()){
+			if (getPiece(move) != null)
+				captureMoves.add(move);
+				
 		}
-//		Legal moves are defined both by existing on the board, not putting own king into check,
-//		and not occupied by a piece of it's own color.
-		
-		
-		return null;
+		return captureMoves;
 	}
-	//this method allows you to check whether the 
-	
-
 }

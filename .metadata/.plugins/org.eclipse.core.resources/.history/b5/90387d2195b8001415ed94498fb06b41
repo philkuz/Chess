@@ -1,9 +1,0 @@
-
-public class Piece 
-{
-	public int coord[];
-	public Piece(int x, int y)
-	{
-		coord[0] = x; coord[1] = y;
-	}
-}

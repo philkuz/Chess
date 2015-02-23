@@ -1,6 +1,0 @@
-package pieces;
-import src.pieces;
-
-public class Pawn extends Piece{
-
-}
