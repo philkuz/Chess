@@ -7,8 +7,8 @@ import chess.Piece;
 
 public class Queen extends Piece {
 
-	public Queen(int x, int y, int color) {
-		super(x, y, color);
+	public Queen(int x, int y, int color, Board world) {
+		super(x, y, color, world);
 		asci[Board.WHITE]="♕";
 		asci[Board.BLACK]="♛";
 		// TODO Auto-generated constructor stub

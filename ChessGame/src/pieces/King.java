@@ -6,8 +6,8 @@ import chess.*;
 
 public class King extends Piece {
 
-	public King(int x, int y, int color) {
-		super(x, y, color);
+	public King(int x, int y, int color, Board world) {
+		super(x, y, color, world);
 		asci[Board.WHITE]= "♔";
 		asci[Board.BLACK]= "♚";
 		
@@ -38,13 +38,25 @@ public class King extends Piece {
 		for(int i = 0; i < 8; i++){
 			for(int j = 0; j < 8; j++){
 				Piece p = board[i][j];
-				for(Integer[] capture : p.captures()){
-					if()
+				if( p != null){
+					System.out.println(p.asci[0]);
+					for(Integer[] capture : p.captures()){
+						//Is the capture valid
+						
+						boolean cap = true;
+						for(int k = 0; k < capture.length;  k++){
+							if(capture[k] != coord[k]){
+								cap = false;
+								break;
+							}
+						}
+						if(cap){
+							return true;
+						}
+					}
 				}
 			}
 		}
-		if(captures includes loc)
-			return true;
 		return false;
 	}
 

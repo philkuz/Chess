@@ -5,8 +5,8 @@ import chess.*;
 
 public class Knight extends Piece {
 
-	public Knight(int x, int y, int color) {
-		super(x, y, color);
+	public Knight(int x, int y, int color, Board world) {
+		super(x, y, color, world);
 		asci[0]="♘";
 		asci[1]="♞";
 		// TODO Auto-generated constructor stub

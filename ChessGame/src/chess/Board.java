@@ -12,7 +12,7 @@ public class Board
 	//CLASS VARIABLES
 	/*The board is currently an array, but if you want AI, break it*/
 	public Piece[][] board;
-	public Piece king;
+	public King king;
 	public Board(){
 		init();
 	}
@@ -23,27 +23,28 @@ public class Board
 //		for(int i = 0; i < 2; i++){
 //			int y = i*7;
 //			/*TODO make movements for queen, king, bishop, rook, and knight*/
-//			addPiece(new Queen(3,y, i));
-//			addPiece(new King(4,y, i));
+//			addPiece(new Queen(3,y, i, this));
+//			addPiece(new King(4,y, i,this));
 //			//loop to handle central symmetry
 //			for(int j=0; j< 2; j++)
 //			{
-//				addPiece(new Knight(1+5*j,y,i));
-//				addPiece(new Bishop(2+3*j,y,i));
-//				addPiece(new Rook(j*7, y,i));
+//				addPiece(new Knight(1+5*j,y,i, this));
+//				addPiece(new Bishop(2+3*j,y,i, this));
+//				addPiece(new Rook(j*7, y,i, this));
 //			}
 //			//pawn init
 //			for(int k = 0; k<8; k++)
 //			{
-//				addPiece(new Pawn(k,1+5*i,i));
+//				addPiece(new Pawn(k,1+5*i,i, this));
 //			}
 //		}
-		Piece[] pieces = {new King(4,3,WHITE),new Pawn(2,2,WHITE), new Pawn(3,1,BLACK)};
+		king = new King(4,3,WHITE, this);
+		Piece[] pieces = {king,new Bishop(2,2,WHITE, this), new Pawn(5,4,BLACK, this)};
 		for (Piece piece : pieces){
 			addPiece(piece);
 			piece.moves();
 		}
-		
+		System.out.println(king.inCheck());
 //		ArrayList<Integer[]> moves = pieces[0].moves();
 		
 		
@@ -72,7 +73,6 @@ public class Board
 	public void addPiece(Piece p){
 		int[] loc = p.getLocation();
 		board[loc[0]][loc[1]] = p;
-		p.updateBoard(board);
 	} 
 	public static void main(String args[]){
 		

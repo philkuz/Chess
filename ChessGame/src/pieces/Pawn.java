@@ -7,8 +7,8 @@ public class Pawn extends Piece{
 	
 	//should only be 1 or -1, if it is 0, it means it hasn't been initialized. 
 	public int direction = 0;
-	public Pawn(int x, int y, int color) {
-		super(x, y, color);
+	public Pawn(int x, int y, int color, Board world) {
+		super(x, y, color,world);
 		asci[Board.WHITE]= "♙";
 		asci[Board.BLACK]= "♟";
 		

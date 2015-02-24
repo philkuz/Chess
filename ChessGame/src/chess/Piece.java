@@ -12,8 +12,9 @@ public abstract class Piece
 //	Black or white
 	public int color;
 	public String asci[] = {"?","?"};
-	public Piece(int x, int y, int color){
+	public Piece(int x, int y, int color, Board world){
 		coord[0] = x; coord[1] = y; this.color = color;
+		this.board = world.board;
 	}
 	
 	public void updateBoard(Piece[][] newboard){
